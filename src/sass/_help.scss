@@ -1,0 +1,48 @@
+.help-content {
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+
+	.text-title {
+		font-weight: bold;
+		color: #757575;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 14px;
+
+		margin-top: 15px;
+
+		&.dark {
+			color: #212121;
+		}
+	}
+
+	.text-content {
+		margin-top: 10px;
+	}
+
+	.modifier {
+		color: #8E24AA;
+		font-size: 36px;
+	}
+	.concept {
+		color: #F4511E;
+		font-size: 36px;
+	}
+
+	.button-icon {
+		color: #424242;
+		font-size: 36px;
+	}
+
+	ul.no-style {
+		list-style-type: none;
+
+		padding-left: 5px;
+
+		li {
+			list-style-type: none;
+		}
+	}
+
+}

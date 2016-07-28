@@ -1,0 +1,18 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+html, body {
+	margin: 0;
+	height: 100%;
+	font-family: 'Open Sans', sans-serif;
+	overflow: hidden;
+}
+
+@import "bootstrap/_bootstrap.scss";
+@import "ionicons/_ionicons.scss";
+@import "_preloader.scss";
+@import "_login.scss";
+@import "_splash.scss";
+@import "_game.scss";
+@import "_item.scss";
+@import "_user.scss";
+@import "_battle.scss";
+@import "_help.scss";

@@ -1,0 +1,56 @@
+.user-header {
+
+	margin-top: 30px;
+	margin-bottom: 30px;
+
+	.text-intro {
+		font-weight: bold;
+		color: #757575;
+		text-transform: uppercase;
+		text-align: center;
+		letter-spacing: 1px;
+		font-size: 12px;
+	}
+
+	.item-icon {
+		font-size: 64px;
+		line-height: 64px;
+		text-align: center;
+	}
+
+	h2 {
+		text-align: center;
+		font-weight: bold;
+
+		margin-top: 10px;
+	}
+
+	.text-type {
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: center;
+		letter-spacing: 1px;
+		font-size: 14px;
+	}
+}
+
+.user-content {
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+
+	.text-title {
+		font-weight: bold;
+		color: #757575;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 14px;
+
+		margin-top: 15px;
+
+		&.dark {
+			color: #212121;
+		}
+	}
+
+}

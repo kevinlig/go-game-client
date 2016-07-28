@@ -1,0 +1,40 @@
+.login-wrap {
+	position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    background-color:#B3E5FC;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .login-content {
+    	width: 75%;
+    	.logo {
+    		text-align: center;
+    	}
+    	.description {
+    		padding-top: 15px;
+    		text-align: center;
+    	}
+    	.sign-in {
+    		padding-top: 40px;
+    		text-align: center;
+    		a {
+    			border: none;
+    			display: block;
+	    		margin-left: auto;
+	    		margin-right: auto;
+    		}
+    	}
+
+    	.registration {
+    		padding-top: 15px;
+
+    		button {
+    			margin-top: 15px;
+    		}
+    	}
+    }
+}

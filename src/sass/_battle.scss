@@ -1,0 +1,81 @@
+.battle-content {
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+
+	.text-title {
+		font-weight: bold;
+		color: #757575;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 14px;
+
+		margin-top: 15px;
+
+		&.dark {
+			color: #212121;
+		}
+	}
+
+	.online {
+		color: #388E3C;
+	}
+	.offline {
+		color: #757575;
+	}
+	.busy {
+		color: #d32f2f;
+	}
+
+	.rank-list {
+		margin-top: 10px;
+		padding-left: 10px;
+
+		li {
+		
+			font-size: 14px;
+			line-height: 24px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			padding-left: 5px;
+
+			word-wrap: break-word;
+
+			border-bottom: 1px solid #9E9E9E;
+
+			&:first-child {
+				border-top: 1px solid #9E9E9E;
+			}
+
+			&:active {
+				background-color: #EEEEEE;
+			}
+
+			a {
+				color: #333333;
+				display: block;
+			}
+
+			.player-status {
+				float: right;
+			}
+		}
+	}
+
+
+	.battle-icon {
+		font-size: 50px;
+		line-height: 50px;
+		margin-top: 10px;
+		color: #212121;
+
+		&.won {
+			color: #F9A825;
+		}
+
+		&.lost {
+			color: #d32f2f;
+		}
+	}
+
+}
