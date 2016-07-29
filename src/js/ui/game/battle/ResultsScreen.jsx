@@ -86,6 +86,9 @@ export default class ResultsScreen extends React.Component {
 	clickedExit(e) {
 		e.preventDefault();
 
+		// indicate to the user manager that we're no longer in battle mode (to handle backgrounding)
+		this.props.app.userManager.inBattle = false;
+
 		// set the online state back to online
 		const uid = Firebase.auth().currentUser.uid;
 		Firebase.database().ref('users/' + uid + '/online').set(1);

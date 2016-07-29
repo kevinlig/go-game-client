@@ -115,6 +115,9 @@ export default class UserManager {
 		let currentUser;
 		let opponentUser;
 
+		// indicate to the user manager that we're in battle mode (to handle backgrounding)
+		this.app.userManager.inBattle = true;
+
 		this.fetchUserInfo(this.uid)
 			.then((data) => {
 				currentUser = data;
@@ -186,6 +189,9 @@ export default class UserManager {
 		let currentUser;
 		let opponentUser;
 		let opponentUid;
+
+		// indicate to the user manager that we're in battle mode (to handle backgrounding)
+		this.app.userManager.inBattle = true;
 		
 		this.fetchUserInfo(this.uid)
 			.then((data) => {

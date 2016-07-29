@@ -6,7 +6,9 @@ export default class UserManager {
 
 		this.activePlayer = {};
 		this.canBattle = 0;
-
+		this.isOffline = false;
+		this.inBattle = false;
+		this.offlineTime;
 	}
 
 	getUserState() {
@@ -54,6 +56,9 @@ export default class UserManager {
 				// also tell the Firebase server to terminate any battles on disconnect
 				Firebase.database().ref('users/' + uid + '/battle/state')
 					.onDisconnect().set(0);
+
+				// now set up a watcher for when the page goes into the background on mobile devices
+				this.watchForBackground();
 
 				// also watch for battle eligibility changes
 				Firebase.database().ref('users/' + uid + '/canBattle').on('value', (event) => {
@@ -196,7 +201,37 @@ export default class UserManager {
 
 	setOnline() {
 		if (Firebase.auth().currentUser) {
+			this.isOffline = false;
 			Firebase.database().ref('users/' + Firebase.auth().currentUser.uid + '/online').set(1);
+		}
+	}
+
+	setOffline() {
+		this.isOffline = true;
+		this.offlineTime = new Date().getTime();
+		const uid = Firebase.auth().currentUser.uid;
+		Firebase.database().ref('users/' + uid + '/online').set(0);
+	}
+
+	watchForBackground() {
+		document.addEventListener('visibilitychange', this.appFocusChanged.bind(this));
+		document.addEventListener('webkitvisibilitychange', this.appFocusChanged.bind(this));
+
+	}
+
+	appFocusChanged() {
+		// check if we went away to the background
+		if (!this.isOffline && !this.inBattle) {
+			this.setOffline();
+		}
+		else if (this.isOffline && !this.inBattle) {
+			// we came back
+			this.setOnline();
+
+			// refresh the page if this was more than 5 minutes ago
+			if (new Date().getTime() - this.offlineTime > (5 * 60 * 1000)) {
+				window.location.reload();
+			}
 		}
 	}
 

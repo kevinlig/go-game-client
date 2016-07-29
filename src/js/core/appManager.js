@@ -58,17 +58,6 @@ class AppManager {
 		// determine whether or not the user needs to login or register
 		this.prepareFirebase()
 			.then(() => {
-				// start watching for foreground state changes
-				window.setInterval(() => {
-					// foreground state changed
-					if (window.document.hasFocus() != this.foregroundState) {
-						this.foregroundState = window.document.hasFocus();
-						// document is in foreground
-						if (this.foregroundState == true) {
-							this.appFocused();
-						}
-					}
-				}, 1000);
 				return this.userManager.getUserState();
 			})
 			.then((state) => {
@@ -102,11 +91,6 @@ class AppManager {
 		return deferred.promise;
 	}
 
-	appFocused() {
-		// app returned to the foreground from a background state
-		// user is logged in, restore
-		this.userManager.setOnline();
-	}
 
 	loadGame() {
 		this.appState = 'loading';
