@@ -8,6 +8,8 @@ export default class CameraManager {
 		this.currentRotation = 0;
 		this.tempRotation;
 
+		this.rotationListener;
+
 		this.cameraDistance = Math.sqrt(Math.pow(game.camera.position.x, 2) + Math.pow(game.camera.position.y, 2));
 	}
 
@@ -39,6 +41,11 @@ export default class CameraManager {
 		const y = Math.sqrt(Math.pow(this.cameraDistance, 2) - Math.pow(x, 2)) * rotationSide;
 
 		this.positionCamera(x, y);
+		
+		// update rotation listener
+		if (this.rotationListener) {
+			this.rotationListener(this.tempRotation);
+		}
 	}
 
 	endRotation() {
@@ -58,5 +65,13 @@ export default class CameraManager {
 
 		const gameCenter = new THREE.Vector3(center.x, center.y, 0);
 		camera.lookAt(gameCenter);
+	}
+
+	registerForRotationChanges(target) {
+		this.rotationListener = target;
+	}
+
+	unregisterForRotationChanges() {
+		this.rotationListener = null;
 	}
 }

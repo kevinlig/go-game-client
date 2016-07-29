@@ -54,6 +54,15 @@
 	}
 }
 
+.compass {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 2;
+	height: 40px;
+	width: 40px;	
+	background-image: url('../assets/compass.png');
+}
 
 
 .full-screen {
