@@ -44,7 +44,7 @@ export const getPixelCoords = (lat, lon, zoom, centerCoords = null) => {
 export const downloadData = (x, y, zoom, offX = 0, offY = 0) => {
 	const deferred = Q.defer();
 
-	Request.get('https://vector.mapzen.com/osm/buildings,roads,water/' + zoom + '/' + (x + offX) + '/' + (y + offY) + '.json')
+	Request.get('https://tile.mapzen.com/mapzen/vector/v1/all/' + zoom + '/' + (x + offX) + '/' + (y + offY) + '.json')
 		.end((err, res) => {
 			if (err) {
 				deferred.reject(err);
